@@ -20,7 +20,7 @@ class SuningSpider(scrapy.Spider):
                              '&ct=1&isNoResult=0&n=1&sc=0&sesab=ACAABAABCAAA&id=IDENTIFYING&cc={}' \
                              '&paging={}&sub=0&jzq=69'
         item = GaojiesiItem()
-        for area in area_code_for_debug:
+        for area in area_codes:
             for i in range(4):
                 area_code = area.get("id")
                 if len(area_code) > 3:
