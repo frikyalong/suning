@@ -34,7 +34,8 @@ class GaojiesiPipeline(object):
         sender = "109332409@qq.com"
         content = "请查看附件"
         receiver = list()
-        receiver.append('wangyangiam@hotmail.com')
+        receiver.append('20167485@qq.com')
+        receiver.append('markwilber@163.com')
         receiver.append('109332409@qq.com')
         password = "bbwqyblqiqnabhed"
         message = MIMEMultipart()
