@@ -21,11 +21,15 @@ class GaojiesiPipeline(object):
         # csv写法
         self.writer = csv.writer(self.file, dialect="excel")
         # write header
-        self.writer.writerow(['cmmdtyCode', 'price', 'shoppingCart', 'area_name'])
+        self.writer.writerow(['cmmdtyCode', 'price', 'shoppingCart', 'area_name',
+                              'snPrice', 'refPrice', 'discount', 'originalPrice',
+                              'bigPromotion', 'shoppingAllowance', 'promotionList'])
 
     def process_item(self, item, spider):
         if item['cmmdtyCode']:
-            self.writer.writerow([item['cmmdtyCode'], item['price'], item['shoppingCart'], item['area_name']])
+            self.writer.writerow([item['cmmdtyCode'], item['price'], item['shoppingCart'], item['area_name'],
+                                  item['snPrice'], item['refPrice'], item['discount'], item['originalPrice'],
+                                  item['bigPromotion'], item['shoppingAllowance'], item['promotionList']])
         return item
 
     def close_spider(self, spider):
@@ -44,7 +48,7 @@ class GaojiesiPipeline(object):
         message['To'] = ';'.join(receiver)
         message['From'] = sender
         att = MIMEText(open(self.store_file, 'rb').read(), 'base64', 'utf-8')
-        att["Content-Disposition"] = 'attachment; filename="gaojiesi.csv"'
+        att["Content-Disposition"] = 'attachment; filename="gaojiesi%s.csv"' % time.strftime("%Y%m%d", time.localtime())
         message.attach(att)
         message.attach(MIMEText(content, 'plain', 'utf-8'))
         smtp = smtplib.SMTP_SSL("smtp.qq.com", 465)

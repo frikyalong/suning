@@ -10,7 +10,6 @@ import scrapy
 
 class GaojiesiItem(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
     cmmdtyCode = scrapy.Field()
     area_code = scrapy.Field()
     area_name = scrapy.Field()
@@ -18,3 +17,10 @@ class GaojiesiItem(scrapy.Item):
     price = scrapy.Field()
     vendorName = scrapy.Field()
     shoppingCart = scrapy.Field()
+    snPrice = scrapy.Field()
+    refPrice = scrapy.Field()
+    discount = scrapy.Field()
+    originalPrice = scrapy.Field()
+    bigPromotion = scrapy.Field()
+    shoppingAllowance = scrapy.Field()
+    promotionList = scrapy.Field()
