@@ -37,6 +37,7 @@ class GaojiesiPipeline(object):
         receiver.append('20167485@qq.com')
         receiver.append('markwilber@163.com')
         receiver.append('109332409@qq.com')
+        receiver.append('wangyangiam@hotmail.com')
         password = "bbwqyblqiqnabhed"
         message = MIMEMultipart()
         message['Subject'] = subject
@@ -48,6 +49,6 @@ class GaojiesiPipeline(object):
         message.attach(MIMEText(content, 'plain', 'utf-8'))
         smtp = smtplib.SMTP_SSL("smtp.qq.com", 465)
         smtp.login(sender, password)  # 发件人登录
-        smtp.sendmail(sender, ';'.join(receiver), message.as_string())  # as_string 对 message 的消息进行了封装
+        smtp.sendmail(sender, receiver, message.as_string())  # as_string 对 message 的消息进行了封装
         smtp.close()
 

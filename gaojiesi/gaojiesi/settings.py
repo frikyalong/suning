@@ -68,7 +68,7 @@ DOWNLOAD_DELAY = 0.5
 ITEM_PIPELINES = {
    'gaojiesi.pipelines.GaojiesiPipeline': 300,
 }
-# LOG_LEVEL = 'WARNING'
+LOG_LEVEL = 'WARNING'
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html
 #AUTOTHROTTLE_ENABLED = True
